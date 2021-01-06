@@ -1,0 +1,22 @@
+image: rambabusaravanan/firebase
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+
+deploy-production:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm install
+    - npm run build
+    - firebase use portfolio-44c8a --token $FIREBASE_TOKEN
+    - firebase target:apply hosting production mern-exercise-tracker.web.app
+    - firebase deploy --only hosting:production -m "Pipeline $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
