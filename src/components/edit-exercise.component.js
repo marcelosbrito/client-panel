@@ -24,7 +24,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    Axios.get('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -37,7 +37,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    Axios.get('http://localhost:5000/users/')
+    Axios.get('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/users/')
     .then(response => {
       if (response.data.length > 0){
         this.setState({
@@ -81,7 +81,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    Axios.post('http://localhost:5000/exercises/update/'+this.props.match.params.id, exercise)
+    Axios.post('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/exercises/update/'+this.props.match.params.id, exercise)
     .then(res => console.log(res.data));
 
     window.location = '/'; //after submit exercise go back to hamepage

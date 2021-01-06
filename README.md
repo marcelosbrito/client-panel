@@ -14,4 +14,4 @@
 
 # How to access
 
-\*\*In progress
+https://mern-exercise-tracker.web.app/

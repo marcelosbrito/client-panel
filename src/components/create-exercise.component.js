@@ -24,7 +24,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/users/')
+    Axios.get('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/users/')
     .then(response => {
      if (response.data.length > 0){
         this.setState({
@@ -69,7 +69,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
-    Axios.post('http://localhost:5000/exercises/add', exercise)
+    Axios.post('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/exercises/add', exercise)
     .then(res => console.log(res.data));
 
     window.location = '/'; //after submit exercise go back to hamepage
@@ -81,7 +81,7 @@ export default class CreateExercise extends Component {
         <h3>Create New Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>User: </label>
             <select ref="userInput"
                 required
                 className="form-control"
@@ -98,7 +98,7 @@ export default class CreateExercise extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Description: </label>
+            <label>Exercise Description: </label>
             <input type="text"
                 required
                 className="form-control"

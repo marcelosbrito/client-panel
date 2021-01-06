@@ -24,7 +24,7 @@ export default class ExerciseList extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/exercises/')
+    Axios.get('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/exercises/')
     .then((response) => {
       this.setState({ exercises: response.data })
     })
@@ -34,7 +34,7 @@ export default class ExerciseList extends Component {
   }
 
   deleteExercise(id) {
-    Axios.delete('http://localhost:5000/exercises/'+id)
+    Axios.delete('https://us-central1-portfolio-44c8a.cloudfunctions.net/app/exercises/'+id)
     .then(res => console.log(res.data));
 
     this.setState({
@@ -55,9 +55,9 @@ export default class ExerciseList extends Component {
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
-              <th>Description</th>
-              <th>Duration</th>
+              <th>User</th>
+              <th>Exercise Description</th>
+              <th>Duration (in minutes)</th>
               <th>Date</th>
               <th>Actions</th>
             </tr>
