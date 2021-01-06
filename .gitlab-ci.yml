@@ -18,5 +18,5 @@ deploy-production:
     - npm install
     - CI=false npm run build
     - firebase use portfolio-44c8a --token $FIREBASE_TOKEN
-    - firebase target:apply hosting production mern-exercise-tracker.web.app
+    - firebase target:apply hosting production mern-exercise-tracker
     - firebase deploy --only hosting:production -m "Pipeline $CI_PIPELINE_ID Build $CI_BUILD_ID" --token $FIREBASE_TOKEN
