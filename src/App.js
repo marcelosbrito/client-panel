@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Navbar from "./components/navbar.component";
-import ExerciseList from "./components/exercise-list.component";
-import EditExercise from "./components/edit-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import CreateUser from "./components/create-user.component";
+import ProjectList from "./components/project-list.component";
+import EditProject from "./components/edit-project.component";
+import CreateProject from "./components/create-project.component";
+import CreateClient from "./components/create-client.component";
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
       <div className="container">
         <Navbar />
         <br />
-        <Route path="/" exact component={ExerciseList} />
-        <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
-        <Route path="/user" component={CreateUser} />
+        <Route path="/" exact component={ProjectList} />
+        <Route path="/edit/:id" component={EditProject} />
+        <Route path="/create" component={CreateProject} />
+        <Route path="/client" component={CreateClient} />
       </div>
     </Router>
   );

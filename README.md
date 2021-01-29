@@ -1,6 +1,6 @@
-# Exercise tracker app
+# Client Panel app
 
-- This is a complete MERN stack exercise tracker application.
+- This is a complete MERN stack client panel application.
 
 # What I Learned
 
@@ -14,4 +14,4 @@
 
 # How to access
 
-https://mern-exercise-tracker.web.app/
+https://mern-client-panel.web.app/

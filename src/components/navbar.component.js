@@ -6,17 +6,17 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">ExcerTracker</Link>
+        <Link to="/" className="navbar-brand">Customer Base</Link>
         <div className="collpase nav-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-          <Link to="/" className="nav-link">Exercises</Link>
+          <Link to="/" className="nav-link">Client Panel</Link>
           </li>
           <li className="nav-item">
-          <Link to="/create" className="nav-link">Create Exercise Log</Link>
+          <Link to="/create" className="nav-link">Create Project</Link>
           </li>
           <li className="nav-item">
-          <Link to="/user" className="nav-link">Create User</Link>
+          <Link to="/client" className="nav-link">Create Client</Link>
           </li>
         </ul>  
         </div>
