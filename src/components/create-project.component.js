@@ -80,7 +80,7 @@ export default class CreateProject extends Component {
     Axios.post('https://us-central1-portfolio-44c8a.cloudfunctions.net/cpanel/projects/add', project)
     .then(res => console.log(res.data));
 
-    window.location = '/'; //after submit project go back to hamepage
+   // window.location = '/'; //after submit project go back to hamepage
   }
 
   render() {
