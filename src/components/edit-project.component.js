@@ -33,7 +33,8 @@ export default class EditProject extends Component {
           email: response.data.email,
           mobile:  response.data.mobile,
           project: response.data.project,
-          date: new Date(response.data.date)
+          date: new Date(response.data.date),
+          projectsf: null
         })
       })
       .catch(function (error) {
@@ -85,15 +86,33 @@ export default class EditProject extends Component {
       email: this.state.email,
       mobile: this.state.mobile,
       project: this.state.project,
-      date: this.state.date
+      date: this.state.date,
+      projectsf: this.state.projectsf
     }
 
     console.log(project);
 
     Axios.post('https://us-central1-portfolio-44c8a.cloudfunctions.net/cpanel/projects/update/'+this.props.match.params.id, project)
-    .then(res => console.log(res.data));
+    .then(res => {
+      console.log(res.data);
+      if(res.data.status === 'fail') {
+        this.setState({
+          projectsf: false
+        }); 
+      } else {
+        this.setState({
+          projectsf: true
+        });
+      }
+    })  
+    .catch(err => {
+      console.log(err);
+      this.setState({
+        projectsf: false 
+      });
+    });
 
-    window.location = '/'; //after submit project go back to hamepage
+    window.location = 'https://mern-client-panel.web.app/'; //after submit project go back to hamepage
   }
 
   render() {
@@ -154,6 +173,9 @@ export default class EditProject extends Component {
           <div className="form-group">
             <input type="submit" value="Edit Project" className="btn btn-primary" />
           </div>
+
+          {this.state.projectsf === true && <p className="alert alert-success" value={this.state.projectsf}>Project edited!</p>}
+          {this.state.projectsf === false && <p className="alert alert-danger" value={this.state.projectsf}>Error. Try again later.</p>}
         </form>
       </div>
     )
