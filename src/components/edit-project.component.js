@@ -112,7 +112,7 @@ export default class EditProject extends Component {
       });
     });
 
-    window.location = 'https://mern-client-panel.web.app/'; //after submit project go back to hamepage
+    //window.location = 'https://mern-client-panel.web.app/'; //after submit project go back to hamepage
   }
 
   render() {
