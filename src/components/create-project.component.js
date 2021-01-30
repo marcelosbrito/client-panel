@@ -21,7 +21,8 @@ export default class CreateProject extends Component {
       mobile: 0,
       project: '',
       date: new Date(),
-      clients: []
+      clients: [],
+      projectsf: null
     }
   }
 
@@ -72,15 +73,41 @@ export default class CreateProject extends Component {
       email: this.state.email,
       mobile:  this.state.mobile,
       project: this.state.project,
-      date:  this.state.date
+      date:  this.state.date,
+      projectsf: this.state.projectsf
     }
 
     console.log(project);
 
     Axios.post('https://us-central1-portfolio-44c8a.cloudfunctions.net/cpanel/projects/add', project)
-    .then(res => console.log(res.data));
+    .then(res => {
+      console.log(res.data);
+      if(res.data.status === 'fail') {
+        this.setState({
+          projectsf: false
+        }); 
+      } else {
+        this.setState({
+          projectsf: true
+        });
+      }
+    })  
+    .catch(err => {
+      console.log(err);
+      this.setState({
+        projectsf: false 
+      });
+    });
 
-   // window.location = '/'; //after submit project go back to hamepage
+    this.setState({
+      clientname: '',
+      email: '',
+      mobile:  '',
+      project: '',
+      date:  '',
+      projectsf: ''
+    }); 
+   window.location = 'https://mern-client-panel.web.app/'; //after submit project go back to hamepage
   }
 
   render() {
@@ -141,6 +168,8 @@ export default class CreateProject extends Component {
           <div className="form-group">
             <input type="submit" value="Create Project" className="btn btn-primary" />
           </div>
+          {this.state.projectsf === true && <p className="alert alert-success" value={this.state.projectsf}>Project added!</p>}
+          {this.state.projectsf === false && <p className="alert alert-danger" value={this.state.projectsf}>Error. Try again later.</p>}
         </form>
       </div>
     )

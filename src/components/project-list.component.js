@@ -10,7 +10,7 @@ const Project = props => (
     <td>{props.project.project}</td>
     <td>{props.project.date.substring(0,10)}</td>
     <td>
-      <Link to={"/edit/"+props.project._id}>edit</Link> | <a href="#" onClick={() => { props.deleteProject(props.project._id) }}>delete</a>
+      <button><Link style={{ color: 'inherit', textDecoration: 'inherit' }} to={"/edit/"+props.project._id}>edit</Link></button> | <button onClick={() => { props.deleteProject(props.project._id) }}>delete</button>
     </td>
   </tr>
 )
